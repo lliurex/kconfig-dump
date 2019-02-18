@@ -24,8 +24,37 @@
 #include <vector>
 
 using namespace std;
+using Path = std::vector<QString>;
 
-void follow(KConfigGroup group,vector<QString>& path)
+vector<Path> ignored;
+
+string to_string(Path& p)
+{
+    QString tmp;
+    
+    for (int n=0;n<p.size();n++) {
+        tmp+=p[n];
+        tmp+="/";
+    }
+    
+    string ret = tmp.toLocal8Bit().constData();
+    return ret;
+}
+
+bool match(Path& a,Path &b)
+{
+    if (a.size()==b.size()) {
+        for (int n=0;n<a.size();n++) {
+            if (a[n]!=b[n]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+void follow(KConfigGroup group,Path& path)
 {
     if (!group.exists()) {
         return;
@@ -43,7 +72,25 @@ void follow(KConfigGroup group,vector<QString>& path)
         
         for (int n=0;n<keys.size();n++) {
             QString value = group.readEntry(keys.at(n));
-            cout<<keys.at(n).toLocal8Bit().constData()<<"="<<value.toLocal8Bit().constData()<<endl;
+            path.push_back(keys.at(n));
+            
+            bool is_ignored=false;
+            
+            for (Path &p : ignored) {
+                if (match(path,p)) {
+                    is_ignored=true;
+                    break;
+                }
+            }
+            
+            if (!is_ignored) {
+                cout<<keys.at(n).toLocal8Bit().constData()<<"="<<value.toLocal8Bit().constData()<<endl;
+            }
+            else {
+                clog<<"Ignored key: "<<to_string(path)<<endl;
+            }
+            
+            path.pop_back();
         }
 
     }
@@ -66,7 +113,10 @@ int main(int argc,char* argv[])
         exit(0);
     }
     
-    vector<QString> path;
+    ignored.push_back({"kdeglobals","General","dbfile"});
+    
+    
+    Path path;
     
     QString file=argv[1];
     KConfig config(file,KConfig::OpenFlag::NoGlobals);
