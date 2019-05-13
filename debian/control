@@ -3,13 +3,12 @@ Section: x11
 Priority: optional
 Maintainer: Equipo LliureX <lliurex@gva.es>
 Uploaders: Equipo LliureX <lliurex@gva.es>
-Build-Depends: cmake, libkf5config-dev
+Build-Depends: debhelper (>=10), cmake, extra-cmake-modules, libkf5config-dev
 Standards-Version: 4.1.2
 
  
 Package: kconfig-dump
 Architecture: any
-Pre-Depends: multiarch-support
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simple kconfig dump tool
  A cli tool to dump full kde settings (merging both defaults and user settings)
