@@ -1,8 +1,8 @@
 Source: kconfig-dump
 Section: x11
 Priority: optional
-Maintainer: Equipo LliureX <lliurex@gva.es>
-Uploaders: Equipo LliureX <lliurex@gva.es>
+Maintainer: Enrique Medina Gremaldos <quiqueiii@gmail.com>
+Uploaders: Enrique Medina Gremaldos <quiqueiii@gmail.com>
 Build-Depends: debhelper (>=10), cmake, extra-cmake-modules, libkf5config-dev
 Standards-Version: 4.1.2
 
