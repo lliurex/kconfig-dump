@@ -1,3 +1,9 @@
+kconfig-dump (1.0.0.0) bionic; urgency=low
+
+  * Dummy upgrade, same master tag
+
+ -- Enrique Medina Gremaldos <quiqueiii@gmail.com>  Mon, 20 May 2019 09:31:50 +0200
+
 kconfig-dump (1.0) bionic; urgency=medium
 
   * Master release: 34a71de241dfbe89279af253bd8cdff740cd7e6c
