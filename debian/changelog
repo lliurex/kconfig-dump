@@ -1,3 +1,10 @@
+kconfig-dump (1.0.1.0) bionic; urgency=medium
+
+  * Master tag: e9762ec0ffc65d09489e6cd15201dcb0b4aa2504
+  * Fixed dangerous conversion from QString to char*
+
+ -- Enrique Medina Gremaldos <quiqueiii@gmail.com>  Fri, 22 Nov 2019 15:20:16 +0100
+
 kconfig-dump (1.0.0.0) bionic; urgency=low
 
   * Dummy upgrade, same master tag
