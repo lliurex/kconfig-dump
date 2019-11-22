@@ -37,7 +37,7 @@ string to_string(Path& p)
         tmp+="/";
     }
     
-    string ret = tmp.toLocal8Bit().constData();
+    string ret = tmp.toStdString();
     return ret;
 }
 
@@ -66,7 +66,7 @@ void follow(KConfigGroup group,Path& path)
     if (keys.size()>0) {
         cout<<endl;
         for (int n=1;n<path.size();n++) {
-            cout<<"["<<path[n].toLocal8Bit().constData()<<"]";
+            cout<<"["<<path[n].toStdString()<<"]";
         }
         cout<<endl;
         
@@ -84,7 +84,7 @@ void follow(KConfigGroup group,Path& path)
             }
             
             if (!is_ignored) {
-                cout<<keys.at(n).toLocal8Bit().constData()<<"="<<value.toLocal8Bit().constData()<<endl;
+                cout<<keys.at(n).toStdString()<<"="<<value.toStdString()<<endl;
             }
             else {
                 clog<<"Ignored key: "<<to_string(path)<<endl;
