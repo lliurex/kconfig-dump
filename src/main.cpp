@@ -92,7 +92,6 @@ void follow(KConfigGroup group,Path& path)
             
             path.pop_back();
         }
-
     }
     
     QStringList list = group.groupList();
@@ -114,7 +113,6 @@ int main(int argc,char* argv[])
     }
     
     ignored.push_back({"kdeglobals","General","dbfile"});
-    
     
     Path path;
     
