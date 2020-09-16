@@ -1,3 +1,10 @@
+kconfig-dump (1.0.2.0) focal; urgency=medium
+
+  * Master tag: 25337f1cb5f43eb9ac1cfbbece8e8fb2dfb37634 
+  * Minor code style fixes (blank lines)
+
+ -- Enrique Medina Gremaldos <quiqueiii@gmail.com>  Wed, 16 Sep 2020 09:36:31 +0200
+
 kconfig-dump (1.0.1.0) bionic; urgency=medium
 
   * Master tag: e9762ec0ffc65d09489e6cd15201dcb0b4aa2504
